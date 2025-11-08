@@ -13,7 +13,6 @@ constructor(private readonly prisma: PrismaService) {}
       where: { authorId: userId },
     });
 
-    // 2. Loop and fetch comments (N queries!)
     const detailedPosts = [];
     for (const post of posts) {
       const comments = await this.prisma.comment.findMany({
